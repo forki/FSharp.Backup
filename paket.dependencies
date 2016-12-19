@@ -16,6 +16,6 @@ group Build
 group Test
   source https://api.nuget.org/v3/index.json
 
-nuget FsCheck.Xunit
-nuget Unquote
+  nuget FsCheck.Xunit
+  nuget Unquote
   nuget xunit
