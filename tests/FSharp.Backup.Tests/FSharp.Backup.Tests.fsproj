@@ -84,6 +84,7 @@
     <Compile Include="FileTypeTests.fs" />
     <None Include="paket.references" />
     <Content Include="App.config" />
+    <Compile Include="OptionHelperTests.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Core, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
