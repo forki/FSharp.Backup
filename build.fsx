@@ -10,7 +10,6 @@ open Fake.ReleaseNotesHelper
 open Fake.Testing
 open Fake.UserInputHelper
 open System
-open System.IO
 #if MONO
 #else
 #load "packages/build/SourceLink.Fake/tools/Fake.fsx"
@@ -101,7 +100,7 @@ Target "AssemblyInfo" (fun _ ->
 
     !! "src/**/*.??proj"
     |> Seq.map getProjectDetails
-    |> Seq.iter (fun (projFileName, projectName, folderName, attributes) ->
+    |> Seq.iter (fun (projFileName, _, folderName, attributes) ->
         match projFileName with
         | Fsproj -> CreateFSharpAssemblyInfo (folderName </> "AssemblyInfo.fs") attributes
         | Csproj -> CreateCSharpAssemblyInfo ((folderName </> "Properties") </> "AssemblyInfo.cs") attributes
@@ -239,7 +238,7 @@ let generateHelp' fail debug =
         buildDocumentationTarget args "Default"
         traceImportant "Help generated"
     with
-    | e when not fail ->
+    | _ when not fail ->
         traceImportant "generating help documentation failed"
 
 let generateHelp fail =
@@ -270,7 +269,7 @@ Target "GenerateHelpDebug" (fun _ ->
 )
 
 Target "KeepRunning" (fun _ ->
-    use watcher = !! "docs/content/**/*.*" |> WatchChanges (fun changes ->
+    use watcher = !! "docs/content/**/*.*" |> WatchChanges (fun _ ->
          generateHelp' true true
     )
 
