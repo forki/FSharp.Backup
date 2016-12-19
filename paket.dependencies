@@ -19,3 +19,4 @@ group Test
   nuget FsCheck.Xunit
   nuget Unquote
   nuget xunit
+  nuget xunit.runner.console
