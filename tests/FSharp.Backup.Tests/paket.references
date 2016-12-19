@@ -1,4 +1,6 @@
 FSharp.Core
 
 group Test
-	xunit
+  FsCheck.Xunit
+  xunit
+  Unquote
