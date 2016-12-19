@@ -1,0 +1,25 @@
+type project
+title
+    FSharp.Backup
+owners
+    Rex Ng
+authors 
+    Rex Ng
+projectUrl
+    https://github.com/rexcfnghk/FSharp.Backup/rexcfnghk/FSharp.Backup
+iconUrl
+    https://raw.githubusercontent.com/rexcfnghk/FSharp.Backup/master/docs/files/img/logo.png
+licenseUrl
+    https://github.com/rexcfnghk/FSharp.Backup/rexcfnghk/FSharp.Backup/blob/master/LICENSE.txt
+requireLicenseAcceptance
+    false
+copyright
+    Copyright 2015
+tags
+    f# backup
+summary
+    An F# file system utility for backup
+description
+    An F# file system utility for backup
+
+
