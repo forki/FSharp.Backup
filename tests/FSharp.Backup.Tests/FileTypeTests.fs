@@ -14,7 +14,7 @@ let ``File can be constructed without extension`` (NonNull s) =
     sprintf "%A" file =! s
 
 [<Property>]
-let ``File can be constructed with extension`` (NonNull fileNameString) (NonNull fileExtensionString) =
+let ``File can be constructed with extension`` fileNameString fileExtensionString =
     let fileName = FileName fileNameString
     let fileExtension = FileExtension fileExtensionString
 
@@ -23,9 +23,15 @@ let ``File can be constructed with extension`` (NonNull fileNameString) (NonNull
     sprintf "%A" file =! sprintf "%s.%s" fileNameString fileExtensionString
 
 [<Property>]
-let ``Directory returns correct string representation`` (NonNull dirNameString) f =
+let ``Directory returns correct string representation`` dirNameString f =
     let dirName = DirectoryName dirNameString
 
     let dir = Directory (dirName, f)
 
     sprintf "%A" dir =! sprintf "Directory: %s" dirNameString
+
+[<Property>]
+let ``FileExtension returns correct string representation`` s =
+    let fileExtension = FileExtension s
+
+    sprintf "%A" fileExtension =! sprintf ".%s" s
