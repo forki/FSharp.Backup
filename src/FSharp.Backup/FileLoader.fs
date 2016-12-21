@@ -1,6 +1,10 @@
 ﻿module FSharp.Backup.FileLoader
 
+open System.IO
 open DomainTypes
 
 let load loader filePath =
-    (FileName "a", None) |> File |> Some
+    try
+        loader filePath
+    with
+    | :? FileNotFoundException -> None
